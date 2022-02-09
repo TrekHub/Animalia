@@ -1,11 +1,18 @@
 package models;
 
-public class EndangeredAnimal {
+public class EndangeredAnimal extends  Animal{
 
     private  String name;
     private String health;
     private  String age;
     private int id;
+
+
+    public EndangeredAnimal(String name, String health, String age) {
+        super(name);
+        this.health = health;
+        this.age = age;
+    }
 
     public int getId() {
         return id;
@@ -15,11 +22,7 @@ public class EndangeredAnimal {
         this.id = id;
     }
 
-    public EndangeredAnimal(String name, String health, String age) {
-        this.name = name;
-        this.health = health;
-        this.age = age;
-    }
+
 
     public String getName() {
         return name;

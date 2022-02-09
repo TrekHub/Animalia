@@ -3,8 +3,9 @@ package models;
 public class Animal {
 
     private String name;
+    private  int id;
 
-    private int id;
+
 
     public void setId(int id) {
         this.id = id;
@@ -12,6 +13,7 @@ public class Animal {
 
     public Animal(String name) {
         this.name = name;
+        this.id = id;
 
     }
 
