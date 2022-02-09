@@ -4,6 +4,11 @@ public class Animal {
 
     private String name;
     private String age;
+    private int id;
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public Animal(String name, String age) {
         this.name = name;
