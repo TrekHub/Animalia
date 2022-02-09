@@ -5,3 +5,5 @@ CREATE TABLE IF NOT EXISTS animals (
   name VARCHAR,
   age VARCHAR
 );
+
+DROP TABLE animals;
