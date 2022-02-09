@@ -1,8 +1,11 @@
+import org.junit.Rule;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class AnimalTest {
+
+
 
     @Test
     public  void animalInstantiatesCorrectly_true(){
@@ -17,12 +20,5 @@ public class AnimalTest {
     }
 
 
-    //Database Tests
-    @Test
-    public  void save_insertsObjectIntoDatabase_animal(){
-        Animal testAnimal = new Animal("Lion");
-        testAnimal.save();
-        assertTrue(Animal.all().get(0).equals(testAnimal));
-    }
 
 }
