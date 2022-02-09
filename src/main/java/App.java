@@ -17,8 +17,10 @@ public class App {
     public static void main(String[] ars) {
         staticFileLocation("/public");
 
-        String connectmetodatabase = "jdbc:h2:~/animal.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
-        Sql2o sql2o = new Sql2o(connectmetodatabase, "", "");
+//        String connectmetodatabase = "jdbc:h2:~/animal.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
+
+        String connectmetodatabase = "jdbc:postgresql://localhost:5432/animal";
+        Sql2o sql2o = new Sql2o(connectmetodatabase, "postgres", "Cosmo1088%");
         Sql20AnimalDao sql20AnimalDao = new Sql20AnimalDao(sql2o);
 
 
