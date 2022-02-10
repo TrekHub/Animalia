@@ -1,11 +1,14 @@
 package dao;
 
-import models.Animal;
+import models.Animals;
 
 import java.util.List;
 
-public  interface  AnimalDao {
-    void add(Animal animal);
-    List<Animal> getAll();
+
+public interface AnimalDao {
+
+    void add(Animals animals);
+    List<Animals> getAll();
+
 
 }
