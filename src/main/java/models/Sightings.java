@@ -1,6 +1,5 @@
 package models;
 
-import java.util.List;
 
 public class Sightings extends  Animals {
 

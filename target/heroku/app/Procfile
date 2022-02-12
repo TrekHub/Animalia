@@ -1,0 +1,1 @@
+web: java -jar target/animalia-1.0-jar-with-dependencies.jar

@@ -1,0 +1,360 @@
+{{#partial "title"}}
+    Animalia
+{{/partial}}
+
+
+{{#partial "content"}}
+    <div class="row main h-100">
+        <div class="left col-md-2  h-100 d-flex flex-column align-items-center">
+
+            <div class="header h-25">
+                <div class="log mt-4">
+                    <img height="40"
+                         src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/000000/external-shield-achievements-and-badges-flatart-icons-outline-flatarticons.png" />
+                    Animalia</a>
+                </div>
+
+                <div class="profile mt-4 text-center">
+                    <div class="avatar">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR86BZr6SF24D2-QMUH2beYXdF0yjPq-odTQQ&usqp=CAU"
+                             alt="">
+                    </div>
+                    <p class="name">Teddy Omondi</p>
+                    <p class="post">Ranger</p>
+
+
+                </div>
+
+            </div>
+
+
+
+
+            <div class="body h-75 d-flex mt-5 flex-column  justify-content-between">
+
+                <div class="links">
+                    <ul>
+                        <li>
+                            <a href=""><img height="30" src="https://img.icons8.com/external-kmg-design-basic-outline-kmg-design/32/000000/external-home-ui-essential-kmg-design-basic-outline-kmg-design.png"/> Home</a>
+                        </li>
+                        <li>
+                            <a href=""><img height="30" src="https://img.icons8.com/dotty/80/000000/wildebeest.png"/> Animals</a>
+                        </li>
+                        <li>
+                            <a href=""> <img height="30" src="https://img.icons8.com/ios/50/000000/no-animals.png"/> Endagered</a>
+                        </li>
+                    </ul>
+
+                </div>
+
+
+
+
+                <div class="footer d-flex justify-content-center mb-3 ">
+                    <a href=""><img height="30" src="https://img.icons8.com/ios/50/000000/exit.png"/> Log Out</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="right col-md-10  h-100 p-4">
+            <div class="nav d-flex justify-content-between">
+
+                <div class="heading mb-4">
+                    <h2>WildLife DashBoard</h2>
+                    <p>Hello Ted</p>
+                </div>
+
+                <div class="nav-btn">
+                    <img height="30" src="https://img.icons8.com/ios/50/000000/exit.png"/>
+                    <button class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Sighting</button>
+
+
+                </div>
+            </div>
+
+
+
+            <div class="row stats d-flex justify-content-between m-4">
+                <div class="col-md-3 one bg-success">
+
+                </div>
+
+                <div class=" col-md-3 two bg-primary">
+
+
+                </div>
+                <div class="col-md-3 three bg-secondary">
+
+                </div>
+            </div>
+
+
+
+
+            <div class="section-title d-flex justify-content-between">
+                <h5>Recorded Sightings</h5>
+                <button class="btn" data-bs-toggle="modal" data-bs-target="#sightings">Add Sighting</button>
+
+            </div>
+
+
+
+<!--            Sighting table-->
+            <div class="tables mt-5  ">
+                <table class="table table-striped table-bordered table-hover mt-3">
+                    <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Health</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Ranger Name</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                    {{#if sightings }}
+                        {{#each sightings}}
+                            <tr>
+                                <th scope="row">{{ id }}</th>
+                                <td>{{ name }}</td>
+                                <td>{{ age }}</td>
+                                <td>{{ health }}</td>
+                                <td>{{ location }}</td>
+                                <td>{{ rangerName }}</td>
+                            </tr>
+                        {{/each}}
+                    {{/if}}
+
+
+                    </tbody>
+                </table>
+
+            </div>
+
+
+
+
+
+<!--            <div class="section-title">-->
+<!--                <h5>Animals</h5>-->
+<!--            </div>-->
+<!--            <div class="tables ">-->
+<!--                <table class="table table-striped table-bordered table-hover">-->
+<!--                    <thead>-->
+<!--                    <tr>-->
+<!--                        <th scope="col">Id</th>-->
+<!--                        <th scope="col">Name</th>-->
+<!--                        <th scope="col">Age</th>-->
+<!--                        <th scope="col">Health</th>-->
+<!--                    </tr>-->
+<!--                    </thead>-->
+<!--                    <tbody>-->
+<!--                    <tr>-->
+<!--                        {{#if animals }}-->
+<!--                            {{#each animals}}-->
+<!--                                <tr>-->
+<!--                                    <th scope="row">{{ id }}</th>-->
+<!--                                    <td>{{ name }}</td>-->
+<!--                                    <td>{{ age }}</td>-->
+<!--                                    <td>{{ health }}</td>-->
+<!--                                </tr>-->
+<!--                            {{/each}}-->
+<!--                        {{/if}}-->
+
+
+<!--                    </tbody>-->
+<!--                </table>-->
+
+<!--            </div>-->
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+    <!--Modal -->
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Record Sighting</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/addAnimal" method="post">
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Animal Name</label>
+                            <input   type="text" name="name" class="form-control" id="" placeholder="">
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="endangeredInput" name="endangeredInput">
+                            <label class="form-check-label" for="endangeredInput">Endangered?</label>
+                        </div>
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput2" class="form-label">Animal Age</label>
+                            <input type="text" name="age" class="form-control" id="f" placeholder="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput2" class="form-label">Animal Health</label>
+                            <input type="text" name="health" class="form-control" id="f" placeholder="">
+                        </div>
+
+                        <button type="submit" class="btn" data-bs-dismiss="modal">Submit</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="modal fade" id="sightings" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Record Sighting</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/addSighting" method="post" >
+
+
+                        <select class="form-select" aria-label="Default select example" name="id">
+                            {{#if animals }}
+                                <option selected>Open this select menu</option>
+                                {{#each animals }}
+                                    <option  value="{{ id }}">{{ id }}</option>
+                                {{/each}}
+                            {{/if}}
+
+
+                        </select>
+
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput2" class="form-label">Location</label>
+                            <input type="text" name="location" class="form-control" id="f" placeholder="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput2" class="form-label">Ranger Name</label>
+                            <input type="text" name="rangerName" class="form-control" id="f" placeholder="">
+                        </div>
+
+                        <button class="btn" type="submit">Submit</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+<style>
+    * {
+  font-family: "Poppins", sans-serif;
+}
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+p {
+  margin: 0;
+}
+
+.left {
+  border-radius: 10px;
+  border-right: 6px #f7f6f7 solid;
+  /* background: #d6f1d4; */
+}
+.header {
+  margin-bottom: 40px;
+}
+.avatar img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background: aquamarine;
+}
+.profile .name {
+  font-weight: 600;
+  color: #b7b7b7;
+  margin-top: 20px;
+}
+.profile .post {
+  font-weight: 300;
+  color: #b7b7b7;
+  font-size: 14px;
+}
+
+/* links */
+
+.links ul {
+  list-style: none;
+}
+.links ul li {
+  margin: 20px 0;
+}
+.links ul li a {
+  text-decoration: none;
+  text-align: center;
+  color: #b7b7b7;
+}
+
+.links ul li a img {
+  margin-right: 20px;
+}
+
+/* footer */
+
+.footer a {
+  text-decoration: none;
+  text-align: center;
+  color: #b7b7b7;
+}
+.btn{
+  width: 200px;
+  height: 55px;
+  border-radius: 10px;
+  outline: none;
+  color: #fff;
+  background-color: #06050a;
+  border: none;
+  box-shadow: #64646f33 0 7px 29px;
+}
+
+.stats .one , .two , .three{
+  height: 200px;
+  border-radius: 10px;
+
+}
+.tables {
+margin-right: 30px;
+}
+
+</style>
+
+
+{{/partial}}
+
+
+{{> layout.hbs }}

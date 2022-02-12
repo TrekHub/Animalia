@@ -1,0 +1,94 @@
+<nav id="nav" class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/000000/external-shield-achievements-and-badges-flatart-icons-outline-flatarticons.png"/>
+            Animalia</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto  mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+
+                <li class="nav-item  mx-3">
+                    <a class="nav-link " href="/heroes">Animals</a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/teams">Endangered Animals</a>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <button class="btn " type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal">Add Sighting</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+
+<!--Modal -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Record Sighting</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/addAnimal" method="post">
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput" class="form-label">Animal Name</label>
+                        <input   type="text" name="name" class="form-control" id="" placeholder="">
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="endangeredInput" name="endangeredInput">
+                        <label class="form-check-label" for="endangeredInput">Endangered?</label>
+                    </div>
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput2" class="form-label">Animal Age</label>
+                        <input type="text" name="age" class="form-control" id="f" placeholder="">
+                    </div>
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput2" class="form-label">Animal Health</label>
+                        <input type="text" name="health" class="form-control" id="f" placeholder="">
+                    </div>
+
+                    <button type="submit" class="btn" data-bs-dismiss="modal">Submit</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<style>
+    #nav {
+    width:  90%;
+    margin: auto;
+    margin-top: 16px;
+
+    }
+
+    .btn {
+    width: 200px;
+    height: 55px;
+    border-radius: 10px;
+    outline: none;
+    color: #fff;
+    background-color: #06050a;
+    border: none;
+    box-shadow: #64646f33 0 7px 29px;
+    }
+
+
+
+
+
+
+</style>
