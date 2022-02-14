@@ -34,9 +34,9 @@ An application that allows Rangers to track wildlife sightings in the area.
 Here is a live link to the project 
 
 
-http://heroeslounge.herokuapp.com/
+http://animaliasurvey.herokuapp.com/
 
-![alt text](public/images/screenshot.png "hello")
+
 
 
 
