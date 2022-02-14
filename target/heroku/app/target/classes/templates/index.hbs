@@ -6,14 +6,11 @@
 {{#partial "content"}}
     <div class="row main h-100">
         <div class="left col-md-2  h-100 d-flex flex-column align-items-center">
-
             <div class="header h-25">
-                <div class="log mt-4">
-                    <img height="40"
-                         src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/000000/external-shield-achievements-and-badges-flatart-icons-outline-flatarticons.png" />
+                <div class="logo mt-4">
+                    <img height="40" src="https://img.icons8.com/dotty/80/000000/wildebeest.png" />
                     Animalia</a>
                 </div>
-
                 <div class="profile mt-4 text-center">
                     <div class="avatar">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR86BZr6SF24D2-QMUH2beYXdF0yjPq-odTQQ&usqp=CAU"
@@ -21,8 +18,6 @@
                     </div>
                     <p class="name">Teddy Omondi</p>
                     <p class="post">Ranger</p>
-
-
                 </div>
 
             </div>
@@ -68,25 +63,23 @@
                 </div>
 
                 <div class="nav-btn">
-                    <img height="30" src="https://img.icons8.com/ios/50/000000/exit.png"/>
-                    <button class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Sighting</button>
-
-
+                    <img class="mx-3" src="https://img.icons8.com/external-dreamstale-lineal-dreamstale/32/000000/external-search-ui-dreamstale-lineal-dreamstale-2.png"/>
+                    <button class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Animal</button>
                 </div>
             </div>
 
 
 
             <div class="row stats d-flex justify-content-between m-4">
-                <div class="col-md-3 one bg-success">
+                <div class="col-md-3 one ">
 
                 </div>
 
-                <div class=" col-md-3 two bg-primary">
+                <div class=" col-md-3 two ">
 
 
                 </div>
-                <div class="col-md-3 three bg-secondary">
+                <div class="col-md-3 three ">
 
                 </div>
             </div>
@@ -129,50 +122,10 @@
                             </tr>
                         {{/each}}
                     {{/if}}
-
-
                     </tbody>
                 </table>
 
             </div>
-
-
-
-
-
-<!--            <div class="section-title">-->
-<!--                <h5>Animals</h5>-->
-<!--            </div>-->
-<!--            <div class="tables ">-->
-<!--                <table class="table table-striped table-bordered table-hover">-->
-<!--                    <thead>-->
-<!--                    <tr>-->
-<!--                        <th scope="col">Id</th>-->
-<!--                        <th scope="col">Name</th>-->
-<!--                        <th scope="col">Age</th>-->
-<!--                        <th scope="col">Health</th>-->
-<!--                    </tr>-->
-<!--                    </thead>-->
-<!--                    <tbody>-->
-<!--                    <tr>-->
-<!--                        {{#if animals }}-->
-<!--                            {{#each animals}}-->
-<!--                                <tr>-->
-<!--                                    <th scope="row">{{ id }}</th>-->
-<!--                                    <td>{{ name }}</td>-->
-<!--                                    <td>{{ age }}</td>-->
-<!--                                    <td>{{ health }}</td>-->
-<!--                                </tr>-->
-<!--                            {{/each}}-->
-<!--                        {{/if}}-->
-
-
-<!--                    </tbody>-->
-<!--                </table>-->
-
-<!--            </div>-->
-
-
         </div>
 
     </div>
@@ -243,7 +196,6 @@
                                 {{/each}}
                             {{/if}}
 
-
                         </select>
 
                         <div class="mb-3">
@@ -267,10 +219,10 @@
 
 
 <style>
-    * {
+   * {
   font-family: "Poppins", sans-serif;
-}
-body,
+  }
+body
 html {
   height: 100%;
   margin: 0;
@@ -284,9 +236,18 @@ p {
 .left {
   border-radius: 10px;
   border-right: 6px #f7f6f7 solid;
-  /* background: #d6f1d4; */
+  background: #f8f8f8;
 }
 .header {
+  margin-bottom: 40px;
+}
+
+.logo {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+.profile {
+  margin-top:30px ;
   margin-bottom: 40px;
 }
 .avatar img {
@@ -295,9 +256,10 @@ p {
   border-radius: 50%;
   background: aquamarine;
 }
+
+
 .profile .name {
   font-weight: 600;
-  color: #b7b7b7;
   margin-top: 20px;
 }
 .profile .post {
@@ -307,12 +269,24 @@ p {
 }
 
 /* links */
+.body {
+  margin-top: 50px;
+}
 
 .links ul {
   list-style: none;
 }
+
 .links ul li {
   margin: 20px 0;
+  padding: 10px 0px;
+  width: 200px;
+  border-radius: 10px;
+}
+
+.links ul li:hover {
+  background-color: #06050a;
+  color: #f7f6f7;
 }
 .links ul li a {
   text-decoration: none;
@@ -332,8 +306,8 @@ p {
   color: #b7b7b7;
 }
 .btn{
-  width: 200px;
-  height: 55px;
+  width: 170px;
+  height: 45px;
   border-radius: 10px;
   outline: none;
   color: #fff;
@@ -347,9 +321,17 @@ p {
   border-radius: 10px;
 
 }
-.tables {
-margin-right: 30px;
+
+.one {
+background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
 }
+.two {
+background: linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);
+}
+.three {
+background: linear-gradient(90deg, #efd5ff 0%, #515ada 100%);
+}
+
 
 </style>
 

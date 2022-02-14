@@ -1,16 +1,15 @@
 package dao;
 
-import models.Animals;
 import models.Sightings;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
+import org.sql2o.Sql2oException;
 
 import java.util.List;
 
 public class Sql2oSightingsDao implements SightingsDao {
 
     private Sql2o sql2o;
-
     public Sql2oSightingsDao(Sql2o sql2o) {
         this.sql2o = sql2o;
     }
@@ -18,7 +17,7 @@ public class Sql2oSightingsDao implements SightingsDao {
 
     @Override
     public void add(Sightings sightings) {
-        String sql = "INSERT INTO sightings (name, age, health, location, rangerName) VALUES (:name, :age, :health, :location, :rangerName)";
+        String sql = "INSERT INTO sightings ( name, age, health, location, rangerName) VALUES (  :name, :age, :health, :location, :rangerName)";
 
         try(Connection con = sql2o.open()){
             int id = (int) con.createQuery(sql, true)
@@ -26,6 +25,8 @@ public class Sql2oSightingsDao implements SightingsDao {
                     .executeUpdate()
                     .getKey();
             sightings.setId(id);
+        }catch (Sql2oException err){
+            System.out.println("Object not added into the database cause of the error " + err);
         }
 
     }
@@ -38,8 +39,6 @@ public class Sql2oSightingsDao implements SightingsDao {
         try (Connection con = sql2o.open()) {
             return con.createQuery(sql)
                     .executeAndFetch(Sightings.class);
-
-
         }
     }
 

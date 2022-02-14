@@ -3,12 +3,14 @@ plugins {
     id 'application'
 }
 
+
 group 'com.moringa.animalia'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 1.8
 
+sourceCompatibility = 1.8
 mainClassName =  'App'
+
 
 
 repositories {

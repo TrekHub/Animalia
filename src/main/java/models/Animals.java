@@ -1,16 +1,21 @@
 package models;
 
+import java.util.ArrayList;
+
 public class Animals {
     public int id;
     public String name;
     public String age;
     public String health;
 
+
+
     public Animals(String name, String age, String health) {
         this.name = name;
         this.age = age;
         this.health = health;
         this.id = id;
+
     }
 
 

@@ -6,6 +6,7 @@ import org.sql2o.Sql2o;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,16 +23,18 @@ public class App {
     }
 
 
+
+
+
+
     public static void main(String[] args) {
         port(getHerokuAssignedPort());
         staticFileLocation("/public");
-//        String connection = "jdbc:postgresql://localhost:5432/wildlife_tracker";
-//        Sql2o sql2o = new Sql2o(connection, "postgres", "Cosmo1088%");
 
 
-        String connection = "jdbc:postgresql://ec2-3-225-79-57.compute-1.amazonaws.com:5432/dd1r4d2ofaup6n";
+
+        String connection = "jdbc:postgresql://ec2-3-225-79-57.compute-1.amazonaws.com:5432/dd1r4d2ofaup6n?sslmode=require";
         Sql2o sql2o = new Sql2o(connection, "jtxvgzzwskkqjc", "bbac89e2b6f957c19ec56182ed627c570c34f5bcba9fd24aff39618ab8b25412");
-
 
 
         Sql2oAnimalsDao sql2oAnimalsDao = new Sql2oAnimalsDao(sql2o);
@@ -44,9 +47,10 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             List<Animals> animals = sql2oAnimalsDao.getAll();
             List<Sightings> sightings = sql2oSightingsDao.getAll();
-
             model.put("animals", animals);
             model.put("sightings", sightings);
+
+
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -79,14 +83,14 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             List<Animals> animals = sql2oAnimalsDao.getAll();
 
-            String id =  request.queryParams("id");
-            int newId = Integer.parseInt(id) ;
-            String name = animals.get(newId).name;
-            String age = animals.get(newId).age;
-            String  health = animals.get(newId).health;
-            String  location = request.queryParams("location");
+            String id = request.queryParams("id");
+            int newId = Integer.parseInt(id);
+            String name = animals.get(newId - 1).name;
+            String age = animals.get(newId - 1).age;
+            String health = animals.get(newId - 1).health;
+            String location = request.queryParams("location");
             String rangerName = request.queryParams("rangerName");
-            Sightings sightings = new Sightings(name, age, health, location , rangerName);
+            Sightings sightings = new Sightings(name, age, health, location, rangerName);
             sql2oSightingsDao.add(sightings);
 
 
@@ -94,8 +98,6 @@ public class App {
             return null;
         }, new HandlebarsTemplateEngine());
     }
-
-
 
 
 }

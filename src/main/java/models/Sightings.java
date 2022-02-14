@@ -6,8 +6,6 @@ public class Sightings extends  Animals {
     private String rangerName;
     private String location;
 
-
-
     public Sightings(String name, String age, String health,  String location, String rangerName) {
         super(name, age, health);
         this.location = location;
